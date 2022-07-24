@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "example.com/grpc-exercice/calculator/proto";
+
+
+message CRequest {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message CResponse {
+    int32 result = 1;
+}
+
+service CService {
+    rpc Cal (CRequest) returns (CResponse);
+}
