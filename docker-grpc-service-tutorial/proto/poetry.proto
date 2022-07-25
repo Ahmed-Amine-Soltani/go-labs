@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "example.com/docker-grpc-service-tutorial/proto/poetry";
+
+
+message Poetry {
+    string title = 1;
+    string author = 2;
+    repeated string lines = 3;
+    int32 linecount = 4;
+}
+
+
+message RandomPoetriesRequest {
+    int32 number_of_poetries = 1;
+}
+
+
+message PoetryList {
+    repeated Poetry list = 1;
+}
+
+
+service ProtobufService {
+    rpc RandomPoetries(RandomPoetriesRequest) returns (PoetryList);
+}
